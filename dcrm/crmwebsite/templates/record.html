@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class=" h-screen text-center dark:text-white p-5 dark:bg-gray-800 flex flex-col items-center space-y-4  ">
+    <h1 class=" text-4xl font-semibold ">User Record</h1>
+    <div class=" flex flex-col rounded-lg justify-start  bg-gray-600 w-1/2 text-white">
+        <div class=" bg-gray-700 flex rounded-lg w-full p-4  ">
+            <span class=" text-2xl font-bold">{{user_record}}</span>
+        </div>
+        <div class=" flex flex-col justify-start space-y-2 p-5">
+            <div class="flex flex-row">
+                <h1 class=" text-xl font-bold">Id: &nbsp;</h1>
+                <span class=" text-xl font-semibold">{{user_record.id}}</span>
+            </div>
+            <div class="flex flex-row">
+                <h1 class=" text-xl font-bold">Email: &nbsp;</h1>
+                <span class=" text-xl font-semibold">{{user_record.email}}</span>
+            </div>
+            <div class="flex flex-row">
+                <h1 class=" text-xl font-bold">Id: &nbsp;</h1>
+                <span class=" text-xl font-semibold">{{user_record.phone}}</span>
+            </div>
+            <div class="flex flex-row">
+                <h1 class=" text-xl font-bold">Id: &nbsp;</h1>
+                <span class=" text-xl font-semibold">{{user_record.address}}</span>
+            </div>
+            <div class="flex flex-row">
+                <h1 class=" text-xl font-bold">Id: &nbsp;</h1>
+                <span class=" text-xl font-semibold">{{user_record.city}}</span>
+            </div>
+            <div class=" space-x-2">
+                <a href="{% url 'home'%}">
+                    <button class=" bg-blue-600 p-2 rounded-lg">Back</button></a>
+                <a href="{% url 'delete_record' user_record.id%}">
+                    <button class=" bg-red-800 p-2 rounded-lg">Delete</button></a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock content %}
