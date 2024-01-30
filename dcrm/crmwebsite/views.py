@@ -82,8 +82,51 @@ def delete_record(request, pk):
 
 
 def update_record(request, pk):
-    pass
+    if request.method == "POST":
+        first_name = request.POST.get("first_name")
+        last_name = request.POST.get("last_name")
+
+        email = request.POST.get("email")
+        phone = request.POST.get("phone")
+        address = request.POST.get("address")
+        city = request.POST.get("city")
+        state = request.POST.get("state")
+        record = Record.objects.get(id=pk)
+        record.first_name = first_name
+        record.last_name = last_name
+        record.email = email
+        record.phone = phone
+        record.address = address
+        record.city = city
+        record.state = state
+        record.save()
+        messages.success(request, "Record updated")
+        return redirect("home")
+    else:
+        record = Record.objects.get(id=pk)
+        return render(request, "update_record.html", {"record": record})
 
 
 def add_record(request):
-    pass
+    if request.method == "POST":
+        first_name = request.POST.get("first_name")
+        last_name = request.POST.get("last_name")
+
+        email = request.POST.get("email")
+        phone = request.POST.get("phone")
+        address = request.POST.get("address")
+        city = request.POST.get("city")
+        state = request.POST.get("state")
+        record = Record.objects.create(
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone=phone,
+            address=address,
+            city=city,
+            state=state,
+        )
+        record.save()
+        messages.success(request, "Record added")
+        return redirect("home")
+    return render(request, "add_record.html")

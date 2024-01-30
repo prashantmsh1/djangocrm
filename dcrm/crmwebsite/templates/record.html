@@ -5,8 +5,10 @@
 <div class=" h-screen text-center dark:text-white p-5 dark:bg-gray-800 flex flex-col items-center space-y-4  ">
     <h1 class=" text-4xl font-semibold ">User Record</h1>
     <div class=" flex flex-col rounded-lg justify-start  bg-gray-600 w-1/2 text-white">
-        <div class=" bg-gray-700 flex rounded-lg w-full p-4  ">
+        <div class=" bg-gray-700 flex rounded-lg w-full p-4 justify-between items-center ">
             <span class=" text-2xl font-bold">{{user_record}}</span>
+            <a href="{% url 'update_record' user_record.id %}"><button
+                    class="bg-green-400 border-green-700 border-6 rounded-xl  p-2 text-xl font-bold dark:text-slate-500 ">Update</button></a>
         </div>
         <div class=" flex flex-col justify-start space-y-2 p-5">
             <div class="flex flex-row">

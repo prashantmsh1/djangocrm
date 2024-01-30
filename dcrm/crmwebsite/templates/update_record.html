@@ -1,52 +1,54 @@
 {% extends "base.html" %}
 {% block content %}
 <div class=" h-dvh text-center dark:text-white p-5 dark:bg-gray-800 flex flex-col items-center space-y-4  ">
-    <h1 class=" text-4xl font-semibold ">Add Record</h1>
+    <h1 class=" text-4xl font-semibold ">Update Record</h1>
 
     <div class=" flex flex-col rounded-lg justify-start  bg-gray-600 w-1/2 text-white">
-        <div class=" bg-gray-700 flex rounded-lg w-full p-4  ">
-            <span class=" text-2xl font-bold">New Client</span>
+        <div class=" bg-gray-700 flex rounded-lg w-full p-4 justify-between  ">
+            <span class=" text-2xl font-bold">{{record}}</span>
+            <a href="{% url 'home'%}">
+                <button class=" bg-blue-600 p-2 rounded-lg">Back</button></a>
         </div>
         <form action="" method="POST">
             {% csrf_token %}
             <div class=" flex flex-col justify-start space-y-2 p-5">
                 <div class="flex flex-row items-center space-x-5">
                     <h1 class=" text-xl font-bold block w-1/4 text-left">First Name: </h1>
-                    <input required name="first_name" type="text"
+                    <input required value="{{record.first_name}}" name="first_name" type="text"
                         class=" bg-slate-200 border-4  border-blue-500 rounded-2xl dark:text-gray-800">
                 </div>
                 <div class="flex flex-row items-center space-x-5">
                     <h1 class=" text-xl font-bold block w-1/4 text-left">Last Name: </h1>
-                    <input name="last_name" type="text"
+                    <input value="{{record.last_name}}" name="last_name" type="text"
                         class=" bg-slate-200 border-4  border-blue-500 rounded-2xl dark:text-gray-800">
                 </div>
                 <div class="flex flex-row items-center space-x-5">
                     <h1 class=" text-xl font-bold block w-1/4 text-left">Email: </h1>
-                    <input name="email" type="text"
+                    <input value="{{record.email}}" name="email" type="text"
                         class=" bg-slate-200 border-4  border-blue-500 rounded-2xl dark:text-gray-800">
                 </div>
                 <div class="flex flex-row items-center space-x-5">
                     <h1 class=" text-xl font-bold block w-1/4 text-left">Phone: </h1>
-                    <input name="phone" type="text"
+                    <input value="{{record.phone}}" name="phone" type="text"
                         class=" bg-slate-200 border-4  border-blue-500 rounded-2xl dark:text-gray-800">
                 </div>
                 <div class="flex flex-row items-center space-x-5">
                     <h1 class=" text-xl font-bold block w-1/4 text-left">Address: </h1>
-                    <input name="address" type="text"
+                    <input value="{{record.address}}" name="address" type="text"
                         class=" bg-slate-200 border-4  border-blue-500 rounded-2xl dark:text-gray-800">
                 </div>
                 <div class="flex flex-row items-center space-x-5">
                     <h1 class=" text-xl font-bold block w-1/4 text-left">City: </h1>
-                    <input name="city" type="text"
+                    <input value="{{record.city}}" name="city" type="text"
                         class=" bg-slate-200 border-4  border-blue-500 rounded-2xl dark:text-gray-800">
                 </div>
                 <div class="flex flex-row items-center space-x-5">
                     <h1 class=" text-xl font-bold block w-1/4 text-left">State: </h1>
-                    <input name="state" type="text"
+                    <input value="{{record.state}}" name="state" type="text"
                         class=" bg-slate-200 border-4  border-blue-500 rounded-2xl dark:text-gray-800">
                 </div>
 
-                <div class=" space-x-2">
+                <div class="flex flex-row justify-center space-x-2">
 
 
                     <button class=" bg-blue-600 p-2 rounded-lg" type="submit">Submit</button>
@@ -56,8 +58,7 @@
             </div>
         </form>
 
-        <a href="{% url 'home'%}">
-            <button class=" bg-blue-600 p-2 rounded-lg">Back</button></a>
+
     </div>
 
 
